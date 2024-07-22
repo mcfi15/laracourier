@@ -1,0 +1,64 @@
+@extends('layouts.admin-dash')
+
+@section('title', 'Parcel Lists')
+
+@section('content')
+
+<div>
+    {{-- @include('livewire.admin.branch.modal') --}}
+    <div class="container-fluid">
+        @include('layouts.alert.msg')
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">All Parcels
+          <a href="{{ url('/admin/parcel/create') }}" class="btn btn-primary btn-sm text-white float-end" >
+            Add Parcel
+            <i class="ti ti-arrow-right"></i>
+          </a>
+        </h5>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">Parcel Id</th>
+                <th scope="col">Sender Name</th>
+                <th scope="col">Recipient Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                @forelse ($parcels as $parcel)
+
+                <tr>
+                    <td scope="col">{{ $loop->iteration }}</td>
+                    <td scope="col">{{$parcel->sender_name }}</td>
+                    <td scope="col">{{ $parcel->reci_name }}</td>
+                    <td scope="col">{{ $parcel->status }}</td>
+                    <td scope="col">
+                        <a wire:click="editBranch({{ $parcel->id }})" data-bs-toggle="modal" data-bs-target="#editBranchModal" class="btn btn-success btn-sm"><i class="ti ti-edit"></i></a>
+                        <a href="#" wire:click="deleteBranch({{ $parcel->id }})" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
+                    </td>
+                </tr>
+                    
+                @empty
+
+                <tr>
+                    <td colspan="5">No Parcel Details Found</td>
+                </tr>
+                    
+                @endforelse
+              
+            </tbody>
+          </table>
+          <div>
+            {{ $parcels->links() }}
+        </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+
+@endsection
