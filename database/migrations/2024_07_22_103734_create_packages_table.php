@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('parcel_id');
-            $table->string('tracking_id');
             $table->string('quantity')->nullable();
             $table->string('type')->nullable();
             $table->string('width')->nullable();
@@ -23,6 +22,7 @@ return new class extends Migration
             $table->string('length')->nullable();
             $table->string('description')->nullable();
             $table->string('price')->nullable();
+            $table->string('unique_id')->nullable();
             
             $table->foreign('parcel_id')->references('id')->on('parcel')->onDelete('cascade');
             $table->timestamps();

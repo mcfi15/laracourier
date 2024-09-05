@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('branch_pro')->nullable();
             $table->string('pickup_branch')->nullable();
             $table->string('carrier_no')->nullable();
+            $table->string('unique_id')->nullable();
             $table->timestamps();
         });
     }

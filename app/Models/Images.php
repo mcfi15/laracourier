@@ -12,7 +12,8 @@ class Images extends Model
     protected $table = 'images';
 
     protected $fillable = [
-        'tracking_id',
+        
+        'parcel_id',
         'image'
     ];
 }

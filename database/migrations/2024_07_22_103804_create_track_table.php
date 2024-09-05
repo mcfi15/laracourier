@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('track', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('parcel_id');
-            $table->string('tracking_id');
-            $table->string('updated_date');
-            $table->string('updated_time');
-            $table->string('location');
-            $table->string('cstatus');
+            $table->string('tracking_id')->nullable();
+            $table->string('updated_date')->nullable();
+            $table->string('updated_time')->nullable();
+            $table->string('location')->nullable();
+            $table->string('cstatus')->nullable();
             $table->string('remark')->nullable();
+            $table->string('unique_id')->nullable();
 
             $table->foreign('parcel_id')->references('id')->on('parcel')->onDelete('cascade');
             $table->timestamps();

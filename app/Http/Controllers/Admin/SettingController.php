@@ -6,7 +6,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use App\Http\Requests\SettingFormRequest;
+use App\Http\Requests\SettingFormRequest; 
 
 class SettingController extends Controller
 {
@@ -98,19 +98,6 @@ class SettingController extends Controller
                 $file->move('uploads/favicon/',$filename);
                 $setting->favicon = $filename;
             }
-
-            // Setting::create([
-            // 'website_name' => $request->website_name,
-            // 'website_url' => $request->website_url,
-            // 'page_title' => $request->page_title,
-            // 'meta_keywords' => $request->meta_keywords,
-            // 'meta_description' => $request->meta_description,
-            // 'address' => $request->address,
-            // 'email' => $request->email,
-            // 'phone' => $request->phone
-            // // $logoname => $request->logo,
-            // // $filename => $request->favicon
-            // ]);
 
             $setting->save();
             

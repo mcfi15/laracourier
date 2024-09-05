@@ -22,11 +22,11 @@ class ParcelFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sender_name' => ['required', 'string'],
-            'sender_address' => ['required', 'string'],
+            'sender_name' => ['nullable', 'string'],
+            'sender_address' => ['nullable', 'string'],
             'sender_contact' => ['nullable', 'string'],
-            'reci_name' => ['required', 'string'],
-            'reci_address' => ['required', 'string'],
+            'reci_name' => ['nullable', 'string'],
+            'reci_address' => ['nullable', 'string'],
             'reci_contact' => ['nullable', 'string'],
             'tracking_id' => ['required', 'string'],
             'status' => ['nullable', 'string'],
@@ -34,10 +34,10 @@ class ParcelFormRequest extends FormRequest
             'pickup_date' => ['nullable', 'string'],
             'exp_date' => ['nullable', 'string'],
             'carrier_no' => ['nullable', 'string'],
-            'branch_pro' => ['required', 'string'],
-            'pickup_branch' => ['required', 'string'],
+            'branch_pro' => ['nullable', 'string'],
+            'pickup_branch' => ['nullable', 'string'],
             'total_price' => ['nullable', 'string'],
-            'image' => ['nullable', 'mimes:jpg,png,jpeg,PNG,JPG,JPEG'],
+            'image' => ['nullable','array'],
             'updated_date' => ['nullable', 'string'],
             'updated_time' => ['nullable', 'string'],
             'cstatus' => ['nullable', 'string'],
@@ -51,7 +51,6 @@ class ParcelFormRequest extends FormRequest
             'length' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
             'price' => ['nullable', 'string']
-
         ];
     }
 }

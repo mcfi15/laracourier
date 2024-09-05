@@ -18,6 +18,142 @@
     <link href="{{ asset('admin/css/styles.min.css') }}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"> --}}
 
+    <style>
+        div.gallery {
+          margin: 5px;
+          border: 0px solid #ccc;
+          float: left;
+          width: 180px;
+        }
+        
+        div.gallery:hover {
+          border: 0px solid #777;
+        }
+        
+        div.gallery img {
+          width: 100%;
+          height: auto;
+        }
+        
+    </style>
+
+    <style>
+        .background{
+  background-color: #F6F9FC;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .container{
+    border-radius: 40px;
+    background-color: #fff;
+    max-width: 450px;
+    height: 900px;
+    .header{
+      border: 1px solid lightgray;
+      padding: 40px 0px 20px 0px;
+      margin-top: 100px;
+      margin-left: 10px;
+      margin-right: 10px;
+      .icon-back{
+        font-size: 30px;
+        color: #11D1A8;
+      } 
+      .order{
+        .order-number{
+          font-size: 20px;
+          font-weight: bold;
+          color: #0A0A0A;
+        }
+        .order-status{
+          color: #F29702;
+          font-weight: 600;
+        }
+      }
+      .icon-brand{
+        font-size: 30px;
+        color: #11D1A8;
+      }
+    }
+    .content{
+        border: 1px solid lightgray;
+        padding: 20px 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        .timeline{
+          .item{
+            &.active{
+              .item-description{
+                 &:before{
+                   background-color: #11D1A8;
+                 }
+               }
+            }
+            position: relative;
+            border-bottom: 1px solid lightgray;
+            padding: 20px 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+            &:last-child{
+              border-bottom: none;
+              &:before{
+                display: none;
+              }
+            }
+            &:before{
+              border-left: 3px solid #11D1A8;
+              content: '';
+              z-index: 0;
+              height: 102%;
+              left: 135px;
+              position: absolute;
+              opacity: 0.4;
+            }
+            .item-label{
+              position: absolute;
+              .item-label-date{
+                color: #A6A6A6;
+                font-size: 17px;
+                font-weight: 500;
+                padding-bottom: 5px;
+              }
+              .item-label-hour{
+                font-weight: 600;
+                font-size: 19px;
+                float: right;
+              }
+            }
+            .item-description{
+              &:before{
+                border: 2px solid #11D1A8;
+                width: 22px;
+                height: 22px;
+                border-radius: 100%;
+                content: '';
+                z-index: 0;
+                left: 125px;
+                position: absolute;
+                background-color: #fff;
+                display: block;
+              }
+              margin-left: 150px;
+              margin-bottom: 20px;
+              .item-description-status{
+                font-weight: 600;
+                font-size: 16px;
+                padding-bottom: 5px;
+              }
+              .item-description-location{
+                color: #A6A6A6;
+                font-size: 15px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+     }
+  }
+}
+    </style>
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles

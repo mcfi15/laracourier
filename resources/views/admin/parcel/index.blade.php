@@ -21,10 +21,11 @@
             <thead>
               <tr>
                 <th scope="col">S/N</th>
-                <th scope="col">Parcel Id</th>
+                <th scope="col">Tracking ID</th>
                 <th scope="col">Sender Name</th>
                 <th scope="col">Recipient Name</th>
                 <th scope="col">Status</th>
+                <th scope="col">Date</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -33,15 +34,19 @@
 
                 <tr>
                     <td scope="col">{{ $loop->iteration }}</td>
+                    <td scope="col">{{$parcel->tracking_id }}</td>
                     <td scope="col">{{$parcel->sender_name }}</td>
                     <td scope="col">{{ $parcel->reci_name }}</td>
                     <td scope="col">{{ $parcel->status }}</td>
+                    <td scope="col">{{ $parcel->created_at }}</td>
                     <td scope="col">
-                        <a wire:click="editBranch({{ $parcel->id }})" data-bs-toggle="modal" data-bs-target="#editBranchModal" class="btn btn-success btn-sm"><i class="ti ti-edit"></i></a>
-                        <a href="#" wire:click="deleteBranch({{ $parcel->id }})" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
+                        <a href="{{ url('admin/parcel/'.$parcel->id.'/edit') }}" title="Edit Parcel Information" class="btn btn-primary btn-sm"><i class="ti ti-edit"></i></a>
+                        <a href="{{ url('admin/parcel/'.$parcel->id.'/status') }}" title="Change Status" class="btn btn-warning btn-sm"><i class="ti ti-pencil"></i></a>
+                        <a href="{{ url('admin/parcel/'.$parcel->id.'/view-receipt') }}" title="View Parcel Receipt" class="btn btn-success btn-sm"><i class="ti ti-eye"></i></a>
+                        <a href="{{ url('admin/parcel/'.$parcel->id.'/delete') }}" title="Delete Parcel" onclick="return confirm('Are you sure you want to delete this data?')" class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
                     </td>
                 </tr>
-                    
+                
                 @empty
 
                 <tr>

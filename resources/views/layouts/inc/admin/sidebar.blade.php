@@ -50,6 +50,14 @@
               <span class="hide-menu">List</span>
             </a>
           </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/admin/track" aria-expanded="false">
+              <span>
+                <i class="ti ti-search"></i>
+              </span>
+              <span class="hide-menu">Track Parcel</span>
+            </a>
+          </li>
           
           
           {{-- <li class="sidebar-item">

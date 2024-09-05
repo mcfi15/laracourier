@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('parcel_id');
-            $table->string('tracking_id');
             $table->string('image')->nullable();
+            $table->string('unique_id')->nullable();
 
             $table->foreign('parcel_id')->references('id')->on('parcel')->onDelete('cascade');
             $table->timestamps();
